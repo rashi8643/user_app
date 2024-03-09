@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_task_user_app/presantation/provider/auth_provider.dart';
-import 'package:flutter_task_user_app/presantation/widgets/text_field_widget.dart';
+import 'package:flutter_task_user_app/features/authentication/presantation/provider/auth_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
-class OtpVerificationPage extends HookConsumerWidget {
-  const OtpVerificationPage({super.key});
+class LoginPage extends HookConsumerWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = useTextEditingController();
+
     return Scaffold(
       body: Center(
         child: Padding(
@@ -32,21 +33,41 @@ class OtpVerificationPage extends HookConsumerWidget {
                   height: 64,
                 ),
                 const Text(
-                  'Verification',
+                  'Login',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                TextFieldWidget(
-                  controller: controller,
-                  labelText: "Enter OTP",
-                  iconData: const Icon(
-                    Icons.numbers,
-                    color: Colors.amber,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: IntlPhoneField(
+                    flagsButtonPadding: const EdgeInsets.all(8),
+                    dropdownIconPosition: IconPosition.trailing,
+                    showCountryFlag: false,
+                    decoration: const InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      hintText: 'Phone number',
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
+                    ),
+                    initialCountryCode: 'IN',
+                    onChanged: (phone) {
+                      controller.text = phone.completeNumber;
+                    },
                   ),
                 ),
+                // // TextFieldWidget(
+                // //   controller: controller,
+                // //   labelText: "Enter Phone Number",
+                // //   iconData: const Icon(
+                // //     Icons.phone,
+                // //     color: Colors.amber,
+                // //   ),
+                // ),
                 Row(
                   children: [
                     Expanded(
@@ -68,10 +89,10 @@ class OtpVerificationPage extends HookConsumerWidget {
                           onPressed: () {
                             ref
                                 .read(authenticationProvider.notifier)
-                                .verifyOtp(context, controller.text);
+                                .signInWithPhone(context, controller.text);
                           },
                           child: const Text(
-                            'Submit',
+                            'Send OTP',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 16,

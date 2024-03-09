@@ -1,4 +1,4 @@
-import 'package:flutter_task_user_app/domain/repository/auth_repository.dart';
+import 'package:flutter_task_user_app/features/authentication/domain/repository/auth_repository.dart';
 
 final class VerifyOtpUsecase {
   final AuthenticationRepository repository;

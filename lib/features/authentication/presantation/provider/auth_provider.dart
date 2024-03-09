@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task_user_app/core/utils/snackbar_utils.dart';
-import 'package:flutter_task_user_app/data/repository/auth_repository_impl.dart';
-import 'package:flutter_task_user_app/domain/repository/auth_repository.dart';
-import 'package:flutter_task_user_app/domain/usecase/auth_usecase.dart';
-import 'package:flutter_task_user_app/domain/usecase/logout_usecase.dart';
-import 'package:flutter_task_user_app/domain/usecase/otp_usecase.dart';
-import 'package:flutter_task_user_app/presantation/pages/home_pages.dart';
-import 'package:flutter_task_user_app/presantation/pages/login_page.dart';
-import 'package:flutter_task_user_app/presantation/pages/otp_verificcation_page.dart';
-import 'package:flutter_task_user_app/presantation/provider/auth_state.dart';
+import 'package:flutter_task_user_app/features/authentication/data/repository/auth_repository_impl.dart';
+import 'package:flutter_task_user_app/features/authentication/domain/repository/auth_repository.dart';
+import 'package:flutter_task_user_app/features/authentication/domain/usecase/auth_usecase.dart';
+import 'package:flutter_task_user_app/features/authentication/domain/usecase/logout_usecase.dart';
+import 'package:flutter_task_user_app/features/authentication/domain/usecase/otp_usecase.dart';
+import 'package:flutter_task_user_app/features/home/presantation/pages/home_pages.dart';
+import 'package:flutter_task_user_app/features/authentication/presantation/pages/login_page.dart';
+import 'package:flutter_task_user_app/features/authentication/presantation/pages/otp_verificcation_page.dart';
+import 'package:flutter_task_user_app/features/authentication/presantation/provider/auth_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_provider.g.dart';

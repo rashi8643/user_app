@@ -1,6 +1,6 @@
-import 'package:flutter_task_user_app/data/data_source/firebase_auth_datasource.dart';
-import 'package:flutter_task_user_app/data/data_source/firebase_auth_datasource_impl.dart';
-import 'package:flutter_task_user_app/domain/repository/auth_repository.dart';
+import 'package:flutter_task_user_app/features/authentication/data/data_source/firebase_auth_datasource.dart';
+import 'package:flutter_task_user_app/features/authentication/data/data_source/firebase_auth_datasource_impl.dart';
+import 'package:flutter_task_user_app/features/authentication/domain/repository/auth_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'auth_repository_impl.g.dart';
 
