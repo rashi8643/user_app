@@ -25,6 +25,11 @@ class UserFirestoreDataSourceImpl implements UserFirestoreDataSource {
 
   @override
   Stream<QuerySnapshot<Model>> getUser() {
+    DocumentSnapshot? lastDocument;
+    Query userQuery = collection.limit(10);
+    if (lastDocument != null) {
+      userQuery = userQuery.startAfterDocument(lastDocument);
+    }
     return collection.snapshots();
   }
 

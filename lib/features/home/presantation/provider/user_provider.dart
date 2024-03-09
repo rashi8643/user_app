@@ -14,11 +14,13 @@ part 'user_provider.g.dart';
 @riverpod
 class UserState extends _$UserState {
   late final TextEditingController titleController;
+  late final ScrollController scrollController;
   late UserRepository repository;
 
   @override
   void build() {
     titleController = TextEditingController();
+    scrollController = ScrollController();
     repository = ref.watch(userRepositoryProvider);
 
     ref.onDispose(dispose);

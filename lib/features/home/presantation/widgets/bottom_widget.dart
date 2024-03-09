@@ -30,11 +30,7 @@ class BottomWidget extends ConsumerWidget {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(32),
-                  color: Colors.amber),
+                  borderRadius: BorderRadius.circular(32), color: Colors.amber),
               child: IconButton(
                 onPressed: () {
                   showModalBottomSheet(

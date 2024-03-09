@@ -25,6 +25,8 @@ class ListViewWidget extends ConsumerWidget {
           : SizedBox(
               height: 508,
               child: ListView.builder(
+                controller:
+                    ref.read(userStateProvider.notifier).scrollController,
                 shrinkWrap: true,
                 physics: const ClampingScrollPhysics(),
                 itemCount: value.length,
